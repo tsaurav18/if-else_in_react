@@ -28,11 +28,26 @@ export default class App extends Component {
   }
   render() {
     const isLoggedIn = this.state.isLoggedIn;
-    if(isLoggedIn){
-      return <User clickData={this.clickLogout} />
-    }else{
-      return <Guest clickData={this.clickLogin}/>
-    }
+    // if(isLoggedIn){
+    //   return <User clickData={this.clickLogout} />
+    // }else{
+    //   return <Guest clickData={this.clickLogin}/>
+    // }
+    return (
+      <div>
+        {(
+           ()=>{
+            if(isLoggedIn){
+              return <User clickData={this.clickLogout}/>
+            }else{
+              return <Guest clickData={this.clickLogin}/>
+            }
+          }
+        )
+        ()  
+        }
+      </div>
+    )
     
   }
 }
